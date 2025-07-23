@@ -1,0 +1,205 @@
+<style>
+.data-item {
+  display: flex; align-items: center; justify-content: center;
+  font-family: monospace; font-weight: bold; font-size: 1.1em;
+  width: 200px; height: 60px;
+  border-radius: 10px; color: white;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  position: absolute; /* Essencial para o movimento */
+  transition: all 0.9s ease-in-out;
+}
+.hub {
+  position: absolute; text-align: center; font-family: monospace;
+  border: 4px dashed #e83e8c; color: #e83e8c;
+  width: 250px; height: 120px; border-radius: 20px;
+  top: 320px; left: 38%;
+  transition: all 0.9s ease-in-out;
+}
+.station {
+  position: absolute; text-align: center; font-family: monospace;
+  width: 220px; height: 150px; border-radius: 10px;
+  border: 3px solid grey; color: grey;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transition: all 0.9s ease-in-out;
+}
+.station.active {
+  color: white; transform: scale(1.05);
+}
+.station .fa-solid { font-size: 2em; margin-bottom: 10px; }
+
+/* Estilos para o slide final de resumo */
+.summary {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: monospace;
+    transition: all 0.9s ease-in-out;
+}
+</style>
+
+## {auto-animate=true}
+
+<h3 style="text-align:center">Início: A Linha de Montagem S3</h3>
+
+<div data-id="item-matriz" class="data-item" style="background: #2780e3; top: 200px; left: 5%;"><span><i class="fa-solid fa-table-cells"></i> Matrix</span></div>
+<div data-id="item-df"    class="data-item" style="background: #3fb618; top: 300px; left: 5%;"><span><i class="fa-solid fa-table"></i> Data Frame</span></div>
+<div data-id="item-lista" class="data-item" style="background: #6c757d; top: 400px; left: 5%;"><span><i class="fa-solid fa-list-ul"></i> List</span></div>
+
+<div data-id="hub" class="hub">
+  <h4>analisar()</h4>
+  <span>Dispatcher</span>
+</div>
+
+<div data-id="proc-matriz" class="station" style="top: 150px; right: 5%;"><i class="fa-solid fa-table-cells"></i><strong>analisar.matrix</strong></div>
+<div data-id="proc-df"    class="station" style="top: 325px; right: 5%;"><i class="fa-solid fa-table"></i><strong>analisar.dataframe</strong></div>
+<div data-id="proc-lista" class="station" style="top: 500px; right: 5%;"><i class="fa-solid fa-circle-question"></i><strong>analisar.default</strong></div>
+
+<div data-id="summary-box" class="summary" style="opacity:0;"></div>
+
+
+## {auto-animate=true}
+
+<h3 style="text-align:center">1. Objeto `matrix` vai para o Dispatcher</h3>
+
+<div data-id="item-matriz" class="data-item" style="background: #2780e3; top: 350px; left: 40%;"><span><i class="fa-solid fa-table-cells"></i> Matrix</span></div>
+<div data-id="item-df"    class="data-item" style="background: #3fb618; top: 200px; left: 5%;"><span><i class="fa-solid fa-table"></i> Data Frame</span></div>
+<div data-id="item-lista" class="data-item" style="background: #6c757d; top: 300px; left: 5%;"><span><i class="fa-solid fa-list-ul"></i> List</span></div>
+
+<div data-id="hub" class="hub">
+  <h4>analisar()</h4>
+  <span>Dispatcher</span>
+</div>
+
+<div data-id="proc-matriz" class="station" style="top: 150px; right: 5%;"><i class="fa-solid fa-table-cells"></i><strong>analisar.matrix</strong></div>
+<div data-id="proc-df"    class="station" style="top: 325px; right: 5%;"><i class="fa-solid fa-table"></i><strong>analisar.dataframe</strong></div>
+<div data-id="proc-lista" class="station" style="top: 500px; right: 5%;"><i class="fa-solid fa-circle-question"></i><strong>analisar.default</strong></div>
+
+<div data-id="summary-box" class="summary" style="opacity:0;"></div>
+
+## {auto-animate=true}
+
+<h3 style="text-align:center">2. Dispatcher envia `matrix` para a estação correta</h3>
+
+<div data-id="item-matriz" class="data-item" style="background: #2780e3; top: 200px; left: 75%;"><span><i class="fa-solid fa-table-cells"></i> Matrix</span></div>
+<div data-id="item-df"    class="data-item" style="background: #3fb618; top: 200px; left: 5%;"><span><i class="fa-solid fa-table"></i> Data Frame</span></div>
+<div data-id="item-lista" class="data-item" style="background: #6c757d; top: 300px; left: 5%;"><span><i class="fa-solid fa-list-ul"></i> List</span></div>
+
+<div data-id="hub" class="hub">
+  <h4>analisar()</h4>
+  <span>Dispatcher</span>
+</div>
+
+<div data-id="proc-matriz" class="station active" style="background: #2780e3; top: 150px; right: 5%;"><i class="fa-solid fa-table-cells"></i><strong>analisar.matrix</strong></div>
+<div data-id="proc-df"    class="station" style="opacity: 0.3; top: 325px; right: 5%;"><i class="fa-solid fa-table"></i><strong>analisar.dataframe</strong></div>
+<div data-id="proc-lista" class="station" style="opacity: 0.3; top: 500px; right: 5%;"><i class="fa-solid fa-circle-question"></i><strong>analisar.default</strong></div>
+
+<div data-id="summary-box" class="summary" style="opacity:0;"></div>
+
+
+## {auto-animate=true}
+
+<h3 style="text-align:center">3. Processado! Próximo objeto: `data.frame`</h3>
+
+<div data-id="item-matriz" class="data-item" style="opacity: 0; transform: scale(0); background: #2780e3; top: 200px; left: 75%;"></div>
+<div data-id="item-df"    class="data-item" style="background: #3fb618; top: 350px; left: 40%;"><span><i class="fa-solid fa-table"></i> Data Frame</span></div>
+<div data-id="item-lista" class="data-item" style="background: #6c757d; top: 200px; left: 5%;"><span><i class="fa-solid fa-list-ul"></i> List</span></div>
+
+<div data-id="hub" class="hub">
+  <h4>analisar()</h4>
+  <span>Dispatcher</span>
+</div>
+
+<div data-id="proc-matriz" class="station" style="top: 150px; right: 5%;"><i class="fa-solid fa-table-cells"></i><strong>analisar.matrix</strong></div>
+<div data-id="proc-df"    class="station" style="top: 325px; right: 5%;"><i class="fa-solid fa-table"></i><strong>analisar.dataframe</strong></div>
+<div data-id="proc-lista" class="station" style="top: 500px; right: 5%;"><i class="fa-solid fa-circle-question"></i><strong>analisar.default</strong></div>
+
+<div data-id="summary-box" class="summary" style="opacity:0;"></div>
+
+## {auto-animate=true}
+
+<h3 style="text-align:center">4. Dispatcher envia `data.frame`</h3>
+
+<div data-id="item-df"    class="data-item" style="background: #3fb618; top: 375px; left: 75%;"><span><i class="fa-solid fa-table"></i> Data Frame</span></div>
+<div data-id="item-lista" class="data-item" style="background: #6c757d; top: 200px; left: 5%;"><span><i class="fa-solid fa-list-ul"></i> List</span></div>
+
+<div data-id="hub" class="hub">
+  <h4>analisar()</h4>
+  <span>Dispatcher</span>
+</div>
+
+<div data-id="proc-matriz" class="station" style="opacity: 0.3; top: 150px; right: 5%;"><i class="fa-solid fa-table-cells"></i><strong>analisar.matrix</strong></div>
+<div data-id="proc-df"    class="station active" style="background: #3fb618; top: 325px; right: 5%;"><i class="fa-solid fa-table"></i><strong>analisar.dataframe</strong></div>
+<div data-id="proc-lista" class="station" style="opacity: 0.3; top: 500px; right: 5%;"><i class="fa-solid fa-circle-question"></i><strong>analisar.default</strong></div>
+
+<div data-id="summary-box" class="summary" style="opacity:0;"></div>
+
+## {auto-animate=true}
+
+<h3 style="text-align:center">5. Processado! Próximo objeto: `list`</h3>
+
+<div data-id="item-df"    class="data-item" style="opacity: 0; transform: scale(0); background: #3fb618; top: 375px; left: 75%;"></div>
+<div data-id="item-lista" class="data-item" style="background: #6c757d; top: 350px; left: 40%;"><span><i class="fa-solid fa-list-ul"></i> List</span></div>
+
+<div data-id="hub" class="hub">
+  <h4>analisar()</h4>
+  <span>Dispatcher</span>
+</div>
+
+<div data-id="proc-matriz" class="station" style="top: 150px; right: 5%;"><i class="fa-solid fa-table-cells"></i><strong>analisar.matrix</strong></div>
+<div data-id="proc-df"    class="station" style="top: 325px; right: 5%;"><i class="fa-solid fa-table"></i><strong>analisar.dataframe</strong></div>
+<div data-id="proc-lista" class="station" style="top: 500px; right: 5%;"><i class="fa-solid fa-circle-question"></i><strong>analisar.default</strong></div>
+
+<div data-id="summary-box" class="summary" style="opacity:0;"></div>
+
+
+## {auto-animate=true}
+
+<h3 style="text-align:center">6. Dispatcher envia `list` para `default`</h3>
+
+<div data-id="item-lista" class="data-item" style="background: #6c757d; top: 550px; left: 75%;"><span><i class="fa-solid fa-list-ul"></i> List</span></div>
+
+<div data-id="hub" class="hub">
+  <h4>analisar()</h4>
+  <span>Dispatcher</span>
+</div>
+
+<div data-id="proc-matriz" class="station" style="opacity: 0.3; top: 150px; right: 5%;"><i class="fa-solid fa-table-cells"></i><strong>analisar.matrix</strong></div>
+<div data-id="proc-df"    class="station" style="opacity: 0.3; top: 325px; right: 5%;"><i class="fa-solid fa-table"></i><strong>analisar.dataframe</strong></div>
+<div data-id="proc-lista" class="station active" style="background: #6c757d; top: 500px; right: 5%;"><i class="fa-solid fa-circle-question"></i><strong>analisar.default</strong></div>
+
+<div data-id="summary-box" class="summary" style="opacity:0;"></div>
+
+
+## {auto-animate=true}
+
+<h3 style="text-align:center">7. Processamento Concluído</h3>
+
+<div data-id="item-lista" class="data-item" style="opacity: 0; transform: scale(0); background: #6c757d; top: 550px; left: 75%;"></div>
+
+<div data-id="hub" class="hub">
+  <h4>analisar()</h4>
+  <span>Dispatcher</span>
+</div>
+
+<div data-id="proc-matriz" class="station" style="top: 150px; right: 5%;"><i class="fa-solid fa-table-cells"></i><strong>analisar.matrix</strong></div>
+<div data-id="proc-df"    class="station" style="top: 325px; right: 5%;"><i class="fa-solid fa-table"></i><strong>analisar.dataframe</strong></div>
+<div data-id="proc-lista" class="station" style="top: 500px; right: 5%;"><i class="fa-solid fa-circle-question"></i><strong>analisar.default</strong></div>
+
+<div data-id="summary-box" class="summary" style="opacity:0;"></div>
+
+## {auto-animate=true}
+
+<h3 style="text-align:center">Resumo da Lógica S3</h3>
+
+<div data-id="hub" class="hub" style="opacity: 0; transform: scale(0.8);"></div>
+<div data-id="proc-matriz" class="station" style="opacity: 0; top: 150px; right: 5%;"></div>
+<div data-id="proc-df"    class="station" style="opacity: 0; top: 325px; right: 5%;"></div>
+<div data-id="proc-lista" class="station" style="opacity: 0; top: 500px; right: 5%;"></div>
+
+<div data-id="summary-box" class="summary" style="opacity:1;">
+  <p style="color:#e83e8c;font-size: 1em;"><code>funcao_generica(objeto)</code></p>
+  <p style="font-size: 1em; margin: 15px 0;">↓</p>
+  <h4>O R verifica a <code>class()</code> do objeto...</h4>
+  <p style="font-size: 1em; margin: 15px 0;">↓</p>
+  <p style="color: #2780e3;font-size: 1em;">...e chama o método <code>funcao.classe()</code></p>
+</div>
