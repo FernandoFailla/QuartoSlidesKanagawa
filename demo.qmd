@@ -1,0 +1,121 @@
+---
+title: "Template Slides Fefo"
+author: "Fefo"
+format: 
+  revealjs:
+    menu:
+      side: left 
+      width: wide
+    theme: custom.scss
+    quiz:
+      includeScore: true
+    chalkboard: true
+revealjs-plugins:
+  - drop
+  - quiz
+filters:
+  - webr
+---
+
+```{r}
+#| label: setup
+#| echo: false
+#| message: false
+#| warning: false
+#| include: false
+library(tidyverse)
+source("src/ggplot_kanagawa.R")
+theme_set(theme_kanagawa_dragon())
+```
+## Getting up {.center style="text-align: center;"}
+- Turn off alarm
+- Get out of bed
+
+## Going to sleep {.center style="text-align: center;"}
+
+- Get in bed
+- Count sheep
+
+## Codigo Feio {.center style="text-align: center;"}
+
+
+```{r}
+iris %>%
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width, col = Species)) +
+  geom_point() +
+  labs(title = "Setosa Sepal Dimensions")
+```
+
+## Teste WebR
+
+Corrija o codigo abaixo
+
+```{webr-r}
+# Deve ler as 5 primeiras linhas
+had(iris)
+```
+## Quiz question goes here {.quiz-question}
+
+- Option 1
+- [Option 2 which is correct]{.correct}
+- Option 3
+- Option 4
+
+## Mermaid {.center style="text-align: center;"}
+
+
+```{mermaid}
+flowchart LR
+  A[Hard edge] --> B(Round edge)
+  B --> C{Decision}
+  C --> D[Result one]
+  C --> E[Result two]
+```
+
+## {auto-animate=true}
+
+### Passo 1: Lixo dentro de casa
+
+<br>
+
+::: {.non-stretch}
+<div style="border: 3px dashed grey; width: 250px; height: 250px; padding: 10px; margin-left: 10%;">
+  <p style="text-align: center; margin:0;">Lixeira de Casa</p>
+  <div data-id="saco-de-lixo" style="background: #A52A2A; color: white; width: 150px; height: 150px; margin: 30px auto; border-radius: 5px; display: flex; align-items: center; justify-content: center;">
+    Lixo
+  </div>
+</div>
+:::
+
+## {auto-animate=true}
+
+### Passo 2: Levando para fora...
+
+<br>
+
+::: {.non-stretch}
+<div style="border: 3px dashed grey; width: 250px; height: 250px; padding: 10px; margin-left: 10%; opacity: 0.5;">
+  <p style="text-align: center; margin:0;">Lixeira de Casa</p>
+</div>
+
+<div data-id="saco-de-lixo" style="background: #CD5C5C; color: white; width: 170px; height: 170px; margin-left: 45%; margin-top: -150px; border-radius: 20px; display: flex; align-items: center; justify-content: center; transform: rotate(-10deg);">
+  Lixo
+</div>
+:::
+
+## {auto-animate=true}
+
+### Passo 3: Tarefa concluída!
+
+<br>
+
+::: {.non-stretch}
+<div style="border: 3px solid green; width: 250px; height: 300px; padding: 10px; margin-left: 70%;">
+  <p style="text-align: center; margin:0;">Lixeira da Rua</p>
+  <div data-id="saco-de-lixo" style="background: #2E8B57; color: white; width: 150px; height: 150px; margin: 100px auto 0 auto; border-radius: 5px; display: flex; align-items: center; justify-content: center; transform: rotate(5deg);">
+    Lixo
+  </div>
+</div>
+:::
+
+{{< include s3dispatch.qmd >}}

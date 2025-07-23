@@ -1,0 +1,113 @@
+/*
+ * Kanagawa Dragon SCSS Theme for Quarto RevealJS Presentations
+ * Inspired by the kanagawa.nvim color scheme (Dragon variant)
+ * Version: 3.1 (SCSS with JetBrains Mono Nerd Font)
+ */
+
+//================================================================//
+// 0. Importação da Fonte (ATUALIZADO)
+//================================================================//
+@import url('https://fonts.googleapis.com/css2?family=Georgia&family=JetBrains+Mono:wght@400;700&display=swap');
+
+
+//================================================================//
+// 1. Definição da Paleta de Cores Kanagawa Dragon
+//================================================================//
+$color-bg:        #161618;  // Dragonbg
+$color-bg-alt:    #18181a;  // Dragonbg2
+$color-fg:        #dcd7ba;  // Fg
+$color-comment:   #727169;  // DragonComment
+$color-red:       #c34043;  // DragonRed
+$color-magenta:   #957fb8;  // DragonMagenta
+$color-blue:      #7e9cd8;  // DragonBlue
+$color-cyan:      #6a9589;  // DragonCyan
+$color-green:     #76946a;  // DragonGreen
+$color-yellow:    #dca561;  // DragonYellow
+$color-selection: #2d4f67;  // DragonSelection
+
+
+//================================================================//
+// 2. Mapeamento das Variáveis do Tema Quarto/RevealJS
+//================================================================//
+
+// -- Fontes (ATUALIZADO) --
+$font-family-sans: 'JetBrains Mono', 'sans-serif' !default;
+$font-family-serif: 'Georgia', 'serif' !default;
+$font-family-monospace: 'JetBrains Mono', 'monospace' !default;
+
+// -- Fundo e Texto Principal --
+$body-bg: $color-bg !default;
+$body-color: $color-fg !default;
+$selection-bg: $color-selection !default;
+$selection-color: $color-fg !default;
+
+// -- Cabeçalhos (h1, h2, etc.) --
+$presentation-heading-color: $color-blue !default;
+$presentation-heading-font: $font-family-serif !default;
+$presentation-heading-text-shadow: 1px 1px 3px rgba(0,0,0,0.3) !default;
+
+// -- Links --
+$link-color: $color-green !default;
+$link-color-hover: $color-yellow !default;
+
+// -- Fundo e Bordas de Blocos de Código --
+$code-block-bg: $color-bg-alt !default;
+$code-block-border-color: $color-comment !default;
+$code-block-border-left: none !default;
+$code-block-border-radius: 8px !default;
+
+
+//================================================================//
+// 3. Estilos Adicionais e Destaque de Sintaxe
+//================================================================//
+
+/*-- scss:rules --*/
+
+// Aplica fontes e estilos dentro da apresentação Reveal
+.reveal {
+  // Define a fonte principal para parágrafos e listas
+  p, li {
+    font-family: $font-family-sans;
+  }
+
+  // Estilos para ênfase
+  strong {
+    color: $color-yellow;
+  }
+  em {
+    color: $color-magenta;
+  }
+
+  // Bloco de citação
+  blockquote {
+    background: $color-bg-alt;
+    border-left: 5px solid $color-blue;
+    color: $color-fg;
+    font-style: italic;
+  }
+  
+  // Customizações extras no bloco de código
+  pre {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 0.9em;
+  }
+  
+  // Garante que o código use a fonte monoespaçada e ativa as ligaduras
+  code {
+    font-family: $font-family-monospace;
+    font-variant-ligatures: contextual;
+  }
+}
+
+// Destaque de Sintaxe para o tema
+.reveal code {
+  .kw { color: $color-red; }
+  .dt { color: $color-cyan; }
+  .dv, .bn, .fl, .cn { color: $color-magenta; }
+  .st { color: $color-green; }
+  .co { color: $color-comment; font-style: italic; }
+  .fu { color: $color-blue; }
+  .op { color: $color-cyan; }
+  .va { color: $color-fg; }
+  .at { color: $color-yellow; }
+}
